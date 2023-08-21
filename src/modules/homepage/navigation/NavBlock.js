@@ -1,14 +1,16 @@
+import { NavLink } from "react-router-dom";
+
 export default function NavBlock(props) {
   const name = props.name;
 
   return (
     <div>
-      <a>
+      <NavLink to={`/${name.toLowerCase()}`}>
         <div>
           <img src={props.image} alt={name} />
         </div>
         <p>{name}</p>
-      </a>
+      </NavLink>
     </div>
   );
 }

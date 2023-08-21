@@ -8,7 +8,9 @@ import Breeds from "../modules/breeds/Breeds.module";
 import Likes from "../modules/selected/Likes.module";
 import Dislikes from "../modules/selected/Dislikes.module";
 import Favorite from "../modules/selected/Favorite.module";
+
 import Placeholder from "../modules/homepage/Placeholder";
+import SearchResult from "../modules/search/SearchResult";
 
 export default function Routes() {
   return (
@@ -22,6 +24,8 @@ export default function Routes() {
         <Route path="/likes" element={<Likes />} />
         <Route path="/dislikes" element={<Dislikes />} />
         <Route path="favorite" element={<Favorite />} />
+
+        <Route path="/search/:breed" element={<SearchResult />} />
       </MainRoutes>
     </div>
   );
