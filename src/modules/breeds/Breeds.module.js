@@ -5,24 +5,25 @@ import Loader from "../helpers/Loader";
 import Grid from "../grid/Grid";
 
 import FiltersBreeds from "./FiltersBreeds";
-import { getDefaultGridPics } from "../helpers/fetchFunctions";
 
 export default function Breeds() {
   const [gridData, setGridData] = useState([]);
 
   const [isLoaded, setisLoaded] = useState(false);
-
   useEffect(() => {
-    getDefaultGridPics().then((data) => {
-      setGridData(data);
+    if (gridData.length > 0) {
       setisLoaded(true);
-    });
-  }, []);
+    }
+  }, [gridData]);
 
   return (
     <div>
       <Search />
-      <FiltersBreeds />
+      <FiltersBreeds
+        changeGridData={(data) => {
+          setGridData(data);
+        }}
+      />
       {isLoaded ? <Grid catList={gridData} /> : <Loader />}
     </div>
   );

@@ -1,16 +1,23 @@
+import { useEffect, useState } from "react";
+
+import { manageGridBlockData } from "../helpers/functions";
+
+import GridBlock from "./GridBlock";
+
 export default function Grid(props) {
-  const cats = props.catList;
+  const [gridData, setGridData] = useState([]);
+
+  useEffect(() => {
+    const catData = props.catList;
+    const data = manageGridBlockData(catData, Math.ceil(catData.length / 5));
+    setGridData(data);
+  }, [props]);
 
   return (
-    <>
-      {cats.map((el) => {
-        return (
-          <div>
-            <img src={`https://cdn2.thecatapi.com/images/${el.img_id}.jpg`} />
-            <p>{el.name}</p>
-          </div>
-        );
+    <div className="Grid">
+      {gridData.map((el, i) => {
+        return <GridBlock data={el} key={i} />;
       })}
-    </>
+    </div>
   );
 }
