@@ -18,7 +18,7 @@ export default function SearchResult() {
       setCats(response);
       setLoading(false);
     });
-  }, []);
+  }, [breed]);
 
   return (
     <>
