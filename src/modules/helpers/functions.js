@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+
 const manageGridBlockData = (arr, amount) => {
   console.log(arr);
   const arrCopy = [...arr];
@@ -8,5 +10,29 @@ const manageGridBlockData = (arr, amount) => {
   }
   return newArr;
 };
+const addPicToStore = (id, vote) => {
+  let action = null;
 
-export { manageGridBlockData };
+  console.log(id, vote);
+  if (vote === "like") {
+    action = "ADD_TO_LIKES";
+  } else if (vote === "dislike") {
+    action = "ADD_TO_DISLIKES";
+  } else if (vote === "favourite") {
+    action = "ADD_TO_FAVORITE";
+  }
+  return {
+    type: action,
+    payload: {
+      id,
+    },
+  };
+};
+const editTime = (date) => {
+  let hours = date.getHours();
+  hours = hours < 10 ? `0${hours}` : hours;
+  let minutes = date.getMinutes();
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  return `${hours}:${minutes}`;
+};
+export { manageGridBlockData, addPicToStore, editTime };

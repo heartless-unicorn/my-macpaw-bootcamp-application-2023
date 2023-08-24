@@ -6,14 +6,15 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 import FormBreedSelect from "../helpers/FormBreedSelect";
-import { getFilteredPics } from "../helpers/fetchFunctions";
+import { fetchFilteredPics } from "../helpers/fetchFunctions";
 
 export default function FiltersBreeds(props) {
   const [limit, setLimit] = useState(10);
   const [isReversed, setReversed] = useState("ASC");
 
   useEffect(() => {
-    getFilteredPics(limit, isReversed).then((data) => {
+    fetchFilteredPics(limit, isReversed).then((data) => {
+    
       props.changeGridData(data);
     });
   }, [limit, isReversed]);

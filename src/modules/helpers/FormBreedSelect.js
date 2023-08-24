@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 
-import { getBreedsList, getFilteredBreedPics } from "./fetchFunctions";
+import { fetchBreedsList, fetchBreedPics } from "./fetchFunctions";
 
 export default function FormBreedSelect(props) {
   const [breeds, setBreeds] = useState([]);
 
   useEffect(() => {
-    getBreedsList().then((response) => setBreeds(response));
+    fetchBreedsList().then((response) => setBreeds(response));
   }, []);
 
   const getBreedPics = (e) => {
-    getFilteredBreedPics(e.target.value).then((response) => {
-      props.breedGridChange([response]);
+    fetchBreedPics(e.target.value).then((response) => {
+      props.breedGridChange(response);
     });
   };
 

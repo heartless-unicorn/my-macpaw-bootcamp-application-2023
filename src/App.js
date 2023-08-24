@@ -2,18 +2,22 @@ import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-//routing imports
+import { Provider } from "react-redux";
+
 import { BrowserRouter } from "react-router-dom";
 
 import Homepage from "./modules/homepage/Homepage.module";
+import Store from "./store/store";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Homepage />
-      </div>
-    </BrowserRouter>
+    <Provider store={Store}>
+      <BrowserRouter>
+        <div className="App">
+          <Homepage />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import FormBreedSelect from "../helpers/FormBreedSelect";
-import { getGalleryPics } from "../helpers/fetchFunctions";
+import { fetchGalleryPics } from "../helpers/fetchFunctions";
 
 export default function FiltersGallery(props) {
   const [limit, setLimit] = useState(10);
@@ -13,7 +13,7 @@ export default function FiltersGallery(props) {
   const [imgType, setImgType] = useState("jpg,png,gif");
 
   useEffect(() => {
-    getGalleryPics(limit, isReversed, imgType).then((data) => {
+    fetchGalleryPics(limit, isReversed, imgType).then((data) => {
       props.changeGridData(data);
     });
   }, [limit, isReversed, imgType]);

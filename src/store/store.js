@@ -6,7 +6,7 @@ let actionLog = {
   favorite: [],
 };
 
-function manageLikes(state = actionLog, action) {
+function manageActions(state = actionLog, action) {
   switch (action.type) {
     case "ADD_TO_LIKES": {
       let liked = [...state["liked"], action.payload];
@@ -14,7 +14,6 @@ function manageLikes(state = actionLog, action) {
       return { ...state, liked };
     }
     case "ADD_TO_DISLIKES": {
-      console.log(action, state);
       let disliked = [...state["disliked"], action.payload];
       return { ...state, disliked };
     }
@@ -24,7 +23,7 @@ function manageLikes(state = actionLog, action) {
     }
     case "REMOVE_FROM_FAVORITE": {
       let favoriteRemoved = state["favorite"].filter((el) => {
-        return el.id !== action.payload;
+        return el !== action.payload;
       });
       return { ...state, favorite: favoriteRemoved };
     }
@@ -54,7 +53,7 @@ function loadStateFromLocalStorage() {
   }
 }
 const persistedState = loadStateFromLocalStorage();
-const store = createStore(manageLikes, persistedState);
+const store = createStore(manageActions, persistedState);
 
 store.subscribe(() => {
   saveStateToLocalStorage(store.getState());
