@@ -10,7 +10,7 @@ import { getFilteredPics } from "../helpers/fetchFunctions";
 
 export default function FiltersBreeds(props) {
   const [limit, setLimit] = useState(10);
-  const [isReversed, setReversed] = useState("DESC");
+  const [isReversed, setReversed] = useState("ASC");
 
   useEffect(() => {
     getFilteredPics(limit, isReversed).then((data) => {
@@ -22,14 +22,14 @@ export default function FiltersBreeds(props) {
     <>
       <Form>
         <Row>
-          <Form.Group as={Col} controlId="formGridBreeds">
+          <Form.Group as={Col}>
             <FormBreedSelect
               breedGridChange={(pics) => {
                 props.changeGridData(pics);
               }}
             />
           </Form.Group>
-          <Form.Group as={Col} controlId="formGridLimit">
+          <Form.Group as={Col}>
             <Form.Select
               defaultValue="10"
               onChange={(e) => {

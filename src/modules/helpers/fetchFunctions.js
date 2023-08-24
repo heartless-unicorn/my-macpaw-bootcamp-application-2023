@@ -16,7 +16,7 @@ const getBreedsList = async () => {
   return breeds;
 };
 
-const getFilteredPics = async (limit, order, breed_id) => {
+const getFilteredPics = async (limit, order) => {
   let pics = null;
   await fetch(
     `https://api.thecatapi.com/v1/breeds?limit=${limit}&order=${order}&api_key=${API_KEY}`
@@ -24,10 +24,11 @@ const getFilteredPics = async (limit, order, breed_id) => {
     .then((response) => response.json())
     .then((data) => {
       pics = data.map((el) => {
+        const img_id = el.reference_image_id;
         return {
           name: el.name,
           id: el.id,
-          img_id: el.reference_image_id,
+          img_url: `https://cdn2.thecatapi.com/images/${img_id}.jpg`,
         };
       });
     });
@@ -41,14 +42,31 @@ const getFilteredBreedPics = async (breed_id) => {
   )
     .then((response) => response.json())
     .then((data) => {
+      const img_id = data[0].breeds[0].reference_image_id;
       pics = {
         name: data[0].breeds[0].name,
         id: data[0].breeds[0].id,
-        img_id: data[0].breeds[0].reference_image_id,
+        img_url: `https://cdn2.thecatapi.com/images/${img_id}.jpg`,
       };
     });
 
   return pics;
 };
 
-export { getBreedsList, getFilteredPics, getFilteredBreedPics };
+const getGalleryPics = async (limit, order, type) => {
+  let pics = null;
+  await fetch(
+    ` https://api.thecatapi.com/v1/images/search?limit=${limit}&order=${order}&api_key=${API_KEY}&mime_types=${type}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      pics = data.map((el) => {
+        return {
+          img_url: el.url,
+        };
+      });
+    });
+  return pics;
+};
+
+export { getBreedsList, getFilteredPics, getFilteredBreedPics, getGalleryPics };
