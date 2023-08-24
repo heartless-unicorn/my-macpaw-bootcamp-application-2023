@@ -23,7 +23,7 @@ export default function Routes() {
 
         <Route path="/likes" element={<Likes />} />
         <Route path="/dislikes" element={<Dislikes />} />
-        <Route path="favorite" element={<Favorite />} />
+        <Route path="/favorite" element={<Favorite />} />
 
         <Route path="/search/:breed" element={<SearchResult />} />
       </MainRoutes>

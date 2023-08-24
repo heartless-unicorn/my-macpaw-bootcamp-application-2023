@@ -14,7 +14,7 @@ export default function Search() {
         </Col>
         <Col>
           <Link to="/likes">Like</Link>
-          <Link to="/favorites">Fav</Link>
+          <Link to="/favorite">Fav</Link>
           <Link to="/dislikes">Dislike</Link>
         </Col>
       </Row>

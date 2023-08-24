@@ -10,6 +10,7 @@ export default function Grid(props) {
   useEffect(() => {
     const catData = props.catList;
     const data = manageGridBlockData(catData, Math.ceil(catData.length / 5));
+    console.log(data);
     setGridData(data);
   }, [props]);
 
