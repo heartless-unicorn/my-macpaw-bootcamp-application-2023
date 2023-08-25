@@ -6,7 +6,8 @@ import Search from "./Search";
 import Grid from "../grid/Grid";
 import Loader from "../helpers/Loader";
 
-import SearchForBreed from "./SearchForBreed";
+import { searchForBreed } from "../helpers/fetchFunctions";
+import { SourceContext } from "../helpers/functions";
 
 export default function SearchResult() {
   const [loading, setLoading] = useState(true);
@@ -14,7 +15,8 @@ export default function SearchResult() {
   const { breed } = useParams();
 
   useEffect(() => {
-    SearchForBreed(breed).then((response) => {
+    searchForBreed(breed).then((response) => {
+      console.log(response);
       setCats(response);
       setLoading(false);
     });
@@ -23,11 +25,13 @@ export default function SearchResult() {
   return (
     <>
       <Search />
-      {loading ? (
-        <Loader />
-      ) : (
-        <div> {cats ? <Grid /> : <p>Sorry, no cats</p>}</div>
-      )}
+      <SourceContext.Provider value="breeds">
+        {loading ? (
+          <Loader />
+        ) : (
+          <div> {cats ? <Grid catList={cats} /> : <p>Sorry, no cats</p>}</div>
+        )}
+      </SourceContext.Provider>
     </>
   );
 }

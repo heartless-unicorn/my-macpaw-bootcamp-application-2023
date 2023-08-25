@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
+import { createContext } from "react";
+
+const SourceContext = createContext(null);
 
 const manageGridBlockData = (arr, amount) => {
-  console.log(arr);
   const arrCopy = [...arr];
   const newArr = [];
   for (let i = 0; i < amount; i++) {
@@ -35,4 +36,5 @@ const editTime = (date) => {
   minutes = minutes < 10 ? `0${minutes}` : minutes;
   return `${hours}:${minutes}`;
 };
-export { manageGridBlockData, addPicToStore, editTime };
+
+export { SourceContext, manageGridBlockData, addPicToStore, editTime };

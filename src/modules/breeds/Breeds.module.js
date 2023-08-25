@@ -5,6 +5,7 @@ import Loader from "../helpers/Loader";
 import Grid from "../grid/Grid";
 
 import FiltersBreeds from "./FiltersBreeds";
+import { SourceContext } from "../helpers/functions";
 
 export default function Breeds() {
   const [gridData, setGridData] = useState([]);
@@ -24,7 +25,9 @@ export default function Breeds() {
           setGridData(data);
         }}
       />
-      {isLoaded ? <Grid catList={gridData} /> : <Loader />}
+      <SourceContext.Provider value="breeds">
+        {isLoaded ? <Grid catList={gridData} /> : <Loader />}
+      </SourceContext.Provider>
     </div>
   );
 }

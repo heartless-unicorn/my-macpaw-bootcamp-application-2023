@@ -63,6 +63,7 @@ const fetchGalleryPics = async (limit, order, type) => {
     .then((data) => {
       pics = data.map((el) => {
         return {
+          id: el.id,
           img_url: el.url,
         };
       });
@@ -83,10 +84,49 @@ const fetchRandomImg = async () => {
   return picture;
 };
 
+const searchForBreed = async (name) => {
+  let cats = [];
+  await fetch("https://api.thecatapi.com/v1/breeds/")
+    .then((response) => response.json())
+    .then((data) => {
+      data.map((el) => {
+        if (el.name.toLowerCase().includes(name)) {
+          const img_id = el.reference_image_id;
+          cats.push({
+            name: el.name,
+            id: el.id,
+            img_url: `https://cdn2.thecatapi.com/images/${img_id}.jpg`,
+          });
+        }
+      });
+    });
+
+  return cats.length > 0 ? cats : null;
+};
+
+const fetchBreedById = async (id) => {
+  let info = {};
+  await fetch(`https://api.thecatapi.com/v1/breeds/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      info = {
+        pic: `https://cdn2.thecatapi.com/images/${data.reference_image_id}.jpg`,
+        name: data.name,
+        temper: data.temperament,
+        origin: data.origin,
+        weight: data.weight.metric,
+        lifespan: data.life_span,
+      };
+    });
+
+  return info;
+};
 export {
   fetchBreedsList,
   fetchFilteredPics,
   fetchBreedPics,
   fetchGalleryPics,
   fetchRandomImg,
+  searchForBreed,
+  fetchBreedById,
 };

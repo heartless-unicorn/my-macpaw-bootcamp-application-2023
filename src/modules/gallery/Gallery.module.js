@@ -4,6 +4,9 @@ import Grid from "../grid/Grid";
 import FiltersGallery from "./FiltersGallery";
 import Loader from "../helpers/Loader";
 
+import { SourceContext } from "../helpers/functions";
+import Search from "../search/Search";
+
 export default function Gallery() {
   const [gridData, setGridData] = useState([]);
 
@@ -17,12 +20,15 @@ export default function Gallery() {
 
   return (
     <div>
+      <Search />
       <FiltersGallery
         changeGridData={(data) => {
           setGridData(data);
         }}
       />
-      {isLoaded ? <Grid catList={gridData} /> : <Loader />}
+      <SourceContext.Provider value="gallery">
+        {isLoaded ? <Grid catList={gridData} /> : <Loader />}
+      </SourceContext.Provider>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import Favorite from "../modules/selected/Favorite.module";
 
 import Placeholder from "../modules/homepage/Placeholder";
 import SearchResult from "../modules/search/SearchResult";
+import SpecificBreed from "../modules/breeds/SpecificBreed";
 
 export default function Routes() {
   return (
@@ -26,6 +27,7 @@ export default function Routes() {
         <Route path="/favorite" element={<Favorite />} />
 
         <Route path="/search/:breed" element={<SearchResult />} />
+        <Route path="/breeds/:name" element={<SpecificBreed />} />
       </MainRoutes>
     </div>
   );
