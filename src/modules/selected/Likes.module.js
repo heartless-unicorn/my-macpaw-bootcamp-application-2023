@@ -6,13 +6,14 @@ import Search from "../search/Search";
 
 export default function Likes() {
   const liked = useSelector((store) => store["liked"]).map((el) => {
-    return { img_url: `https://cdn2.thecatapi.com/images/${el.id}.jpg` };
+    return { img_url: `https://cdn2.thecatapi.com/images/${el}.jpg` };
   });
 
   return (
     <div>
       <Search />
-      {liked ? <Grid catList={liked} /> : <NoItems />}
+
+      {liked.length > 0 ? <Grid catList={liked} /> : <NoItems />}
     </div>
   );
 }

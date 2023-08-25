@@ -57,6 +57,7 @@ const store = createStore(manageActions, persistedState);
 
 store.subscribe(() => {
   saveStateToLocalStorage(store.getState());
+  console.log(store.getState());
 });
 
 export default store;

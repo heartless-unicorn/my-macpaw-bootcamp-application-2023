@@ -6,13 +6,13 @@ import Search from "../search/Search";
 
 export default function Dislikes() {
   const disliked = useSelector((store) => store["disliked"]).map((el) => {
-    return { img_url: `https://cdn2.thecatapi.com/images/${el.id}.jpg` };
+    return { img_url: `https://cdn2.thecatapi.com/images/${el}.jpg` };
   });
 
   return (
     <div>
       <Search />
-      {disliked ? <Grid catList={disliked} /> : <NoItems />}
+      {disliked.length > 0 ? <Grid catList={disliked} /> : <NoItems />}
     </div>
   );
 }

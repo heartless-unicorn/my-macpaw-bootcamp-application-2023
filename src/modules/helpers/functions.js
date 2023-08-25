@@ -19,14 +19,14 @@ const addPicToStore = (id, vote) => {
     action = "ADD_TO_LIKES";
   } else if (vote === "dislike") {
     action = "ADD_TO_DISLIKES";
-  } else if (vote === "favourite") {
+  } else if (vote === "favorite") {
     action = "ADD_TO_FAVORITE";
+  } else if (vote === "remove") {
+    action = "REMOVE_FROM_FAVORITE";
   }
   return {
     type: action,
-    payload: {
-      id,
-    },
+    payload: id,
   };
 };
 const editTime = (date) => {

@@ -34,7 +34,7 @@ export default function ActionMenu(props) {
       </Button>
       <Button
         onClick={() => {
-          handleAction("favourite");
+          handleAction("favorite");
         }}
       >
         {" "}
