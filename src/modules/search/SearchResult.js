@@ -6,7 +6,7 @@ import Search from "./Search";
 import Grid from "../grid/Grid";
 import Loader from "../helpers/Loader";
 
-import { searchForBreed } from "../helpers/fetchFunctions";
+import { fetchForBreed } from "../helpers/fetchFunctions";
 import { SourceContext } from "../helpers/functions";
 
 export default function SearchResult() {
@@ -15,8 +15,7 @@ export default function SearchResult() {
   const { breed } = useParams();
 
   useEffect(() => {
-    searchForBreed(breed).then((response) => {
-      console.log(response);
+    fetchForBreed(breed).then((response) => {
       setCats(response);
       setLoading(false);
     });

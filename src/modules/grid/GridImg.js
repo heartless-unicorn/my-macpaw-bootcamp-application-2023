@@ -24,7 +24,6 @@ export default function GridImg(props) {
     if ((source === "gallery" || source === "fav") && info) {
       setisFav(favorite.some((item) => item.id === info.id));
     }
-    console.log(isFav);
   }, []);
 
   useEffect(() => {}, [favorite]);
