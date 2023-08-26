@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import BackButton from "../helpers/BackButton";
 import { fetchBreedById } from "../helpers/fetchFunctions";
 import Loader from "../helpers/Loader";
 
@@ -22,6 +23,7 @@ export default function SpecificBreed() {
   return (
     <div>
       <Search />
+      <BackButton />
       {isLoaded ? <SpecificBreedInfo about={info} /> : <Loader />}
     </div>
   );

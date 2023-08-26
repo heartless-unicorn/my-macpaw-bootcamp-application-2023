@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import Grid from "../grid/Grid";
+import BackButton from "../helpers/BackButton";
 import { SourceContext } from "../helpers/functions";
 import NoItems from "../helpers/NoItems";
 import Search from "../search/Search";
@@ -22,6 +23,7 @@ export default function Favorite() {
   return (
     <div>
       <Search />
+      <BackButton />
       <SourceContext.Provider value="fav">
         {fav.length > 0 ? <Grid catList={fav} /> : <NoItems />}
       </SourceContext.Provider>

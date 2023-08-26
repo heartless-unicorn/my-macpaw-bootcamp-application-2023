@@ -6,6 +6,7 @@ import Grid from "../grid/Grid";
 
 import FiltersBreeds from "./FiltersBreeds";
 import { SourceContext } from "../helpers/functions";
+import BackButton from "../helpers/BackButton";
 
 export default function Breeds() {
   const [gridData, setGridData] = useState([]);
@@ -20,6 +21,7 @@ export default function Breeds() {
   return (
     <div>
       <Search />
+      <BackButton />
       <FiltersBreeds
         changeGridData={(data) => {
           setGridData(data);

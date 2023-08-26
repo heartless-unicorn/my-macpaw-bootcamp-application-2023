@@ -6,6 +6,7 @@ import ActionMessages from "./ActionMessages";
 import Loader from "../helpers/Loader";
 
 import Image from "react-bootstrap/Image";
+import BackButton from "../helpers/BackButton";
 
 export default function Voting() {
   const [imageSrc, setImageSrc] = useState(null);
@@ -14,6 +15,7 @@ export default function Voting() {
   return (
     <div>
       <Search />
+      <BackButton />
 
       {imageSrc ? (
         <Image src={imageSrc.img_url} alt="Cat" fluid rounded />

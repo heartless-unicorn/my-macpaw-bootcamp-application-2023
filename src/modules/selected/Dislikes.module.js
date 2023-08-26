@@ -4,6 +4,8 @@ import Grid from "../grid/Grid";
 import NoItems from "../helpers/NoItems";
 import Search from "../search/Search";
 
+import BackButton from "../helpers/BackButton";
+
 export default function Dislikes() {
   const disliked = useSelector((store) => store["disliked"]).map((el) => {
     console.log(el);
@@ -13,6 +15,7 @@ export default function Dislikes() {
   return (
     <div>
       <Search />
+      <BackButton />
       {disliked.length > 0 ? <Grid catList={disliked} /> : <NoItems />}
     </div>
   );

@@ -9,6 +9,7 @@ import Upload from "./upload/Upload";
 
 import Loader from "../helpers/Loader";
 import { SourceContext } from "../helpers/functions";
+import BackButton from "../helpers/BackButton";
 
 export default function Gallery() {
   const [gridData, setGridData] = useState([]);
@@ -19,40 +20,41 @@ export default function Gallery() {
 
   useEffect(() => {
     if (gridData.length > 0) {
+      console.log("here");
       setisLoaded(true);
     }
   }, [gridData]);
 
   return (
     <div>
-      <Search />
-      <Button
-        onClick={() => {
-          setIsUpload(true);
-        }}
-      >
-        Upload
-      </Button>
-      <FiltersGallery
-        changeGridData={(data) => {
-          setGridData(data);
-        }}
-      />
-      <SourceContext.Provider value="gallery">
-        {isLoaded ? (
-          isUpload ? (
-            <Upload
-              closeUploadPopUp={() => {
-                setIsUpload(false);
-              }}
-            />
-          ) : (
-            <Grid catList={gridData} />
-          )
-        ) : (
-          <Loader />
-        )}
-      </SourceContext.Provider>
+      {isUpload ? (
+        <Upload
+          closeUploadPopUp={() => {
+            setIsUpload(false);
+          }}
+        />
+      ) : (
+        <div>
+          <Search />
+          <BackButton />
+          <Button
+            onClick={() => {
+              setIsUpload(true);
+            }}
+          >
+            Upload
+          </Button>
+
+          <FiltersGallery
+            changeGridData={(data) => {
+              setGridData(data);
+            }}
+          />
+          <SourceContext.Provider value="gallery">
+            {isLoaded ? <Grid catList={gridData} /> : <Loader />}
+          </SourceContext.Provider>
+        </div>
+      )}
     </div>
   );
 }
