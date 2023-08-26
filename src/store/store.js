@@ -23,7 +23,7 @@ function manageActions(state = actionLog, action) {
     }
     case "REMOVE_FROM_FAVORITE": {
       let favoriteRemoved = state["favorite"].filter((el) => {
-        return el !== action.payload;
+        return el.id !== action.payload.id;
       });
       return { ...state, favorite: favoriteRemoved };
     }

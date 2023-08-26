@@ -16,7 +16,7 @@ export default function Voting() {
       <Search />
 
       {imageSrc ? (
-        <Image src={imageSrc.url} alt="Cat" fluid rounded />
+        <Image src={imageSrc.img_url} alt="Cat" fluid rounded />
       ) : (
         <Loader />
       )}

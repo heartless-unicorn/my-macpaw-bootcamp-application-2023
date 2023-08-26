@@ -13,7 +13,7 @@ export default function ActionMenu(props) {
 
   const handleAction = (vote) => {
     if (vote) {
-      const storeData = addPicToStore(props.curImg.id, vote);
+      const storeData = addPicToStore(props.curImg, vote);
       dispatch(storeData);
       props.addAction({ id: props.curImg.id, action: vote, time: new Date() });
     }

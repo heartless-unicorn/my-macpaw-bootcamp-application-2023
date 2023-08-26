@@ -6,7 +6,8 @@ import Search from "../search/Search";
 
 export default function Dislikes() {
   const disliked = useSelector((store) => store["disliked"]).map((el) => {
-    return { img_url: `https://cdn2.thecatapi.com/images/${el}.jpg` };
+    console.log(el);
+    return { img_url: el.img_url };
   });
 
   return (

@@ -13,8 +13,8 @@ export default function Favorite() {
     setFav(
       favorite.map((el) => {
         return {
-          id: el,
-          img_url: `https://cdn2.thecatapi.com/images/${el}.jpg`,
+          id: el.id,
+          img_url: el.img_url,
         };
       })
     );

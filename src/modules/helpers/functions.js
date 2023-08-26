@@ -11,10 +11,10 @@ const manageGridBlockData = (arr, amount) => {
   }
   return newArr;
 };
-const addPicToStore = (id, vote) => {
+const addPicToStore = (data, vote) => {
   let action = null;
 
-  console.log(id, vote);
+  console.log(data, vote);
   if (vote === "like") {
     action = "ADD_TO_LIKES";
   } else if (vote === "dislike") {
@@ -26,7 +26,7 @@ const addPicToStore = (id, vote) => {
   }
   return {
     type: action,
-    payload: id,
+    payload: data,
   };
 };
 const editTime = (date) => {

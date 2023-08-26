@@ -6,7 +6,7 @@ import Search from "../search/Search";
 
 export default function Likes() {
   const liked = useSelector((store) => store["liked"]).map((el) => {
-    return { img_url: `https://cdn2.thecatapi.com/images/${el}.jpg` };
+    return { img_url: el.img_url };
   });
 
   return (

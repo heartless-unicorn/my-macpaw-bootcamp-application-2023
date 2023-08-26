@@ -77,7 +77,7 @@ const fetchRandomImg = async () => {
     .then((data) => {
       picture = {
         id: data[0].id,
-        url: data[0].url,
+        img_url: data[0].url,
       };
     });
 

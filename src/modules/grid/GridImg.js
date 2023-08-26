@@ -21,19 +21,20 @@ export default function GridImg(props) {
   const [isFav, setisFav] = useState(null);
 
   useEffect(() => {
-    if (source === "gallery" || ("fav" && info)) {
-      setisFav(favorite.some((item) => item === info.id));
+    if ((source === "gallery" || source === "fav") && info) {
+      setisFav(favorite.some((item) => item.id === info.id));
     }
+    console.log(isFav);
   }, []);
 
   useEffect(() => {}, [favorite]);
 
   const handleFavorite = () => {
     if (isFav) {
-      dispatch(addPicToStore(info.id, "remove"));
+      dispatch(addPicToStore(info, "remove"));
       source === "gallery" && setisFav(false);
     } else {
-      dispatch(addPicToStore(info.id, "favorite"));
+      dispatch(addPicToStore(info, "favorite"));
       source === "gallery" && setisFav(true);
     }
   };
@@ -49,12 +50,12 @@ export default function GridImg(props) {
           onClick={() => {
             if (source === "breeds") {
               navigate(`/breeds/${info.id}`);
-            } else if (source === "gallery" || "fav") {
+            } else if (source === "gallery" || source === "fav") {
               handleFavorite();
             }
           }}
         />
-        {source === "gallery" || "fav" ? (
+        {source === "gallery" || source === "fav" ? (
           <p>{isFav ? "Fav" : "No Fav"}</p>
         ) : null}
       </>
