@@ -53,7 +53,7 @@
   color: white;
 }
 .dark .SpecificBreed .info h3 {
-  background-color: var(--dark-secondary-background);
+  background-color: var(#282828);
 }
 .temper {
   text-align: left;
