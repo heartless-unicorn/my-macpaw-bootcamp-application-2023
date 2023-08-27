@@ -18,7 +18,11 @@ export default function FormBreedSelect(props) {
   };
 
   return (
-    <Form.Select defaultValue="All breeds" onChange={getBreedPics}>
+    <Form.Select
+      defaultValue="All breeds"
+      onChange={getBreedPics}
+      className="form-input"
+    >
       <option>All breeds</option>
       {breeds.map((el, i) => {
         return (

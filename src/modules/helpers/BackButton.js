@@ -1,4 +1,5 @@
 import Button from "react-bootstrap/Button";
+import BackButtonSvg from "../../media/svgs/BackButtonSvg";
 
 import { useNavigate } from "react-router-dom";
 
@@ -10,8 +11,9 @@ export default function BackButton() {
         onClick={() => {
           navigate(-1);
         }}
+        variant="flat"
       >
-        Back
+        <BackButtonSvg />
       </Button>
     </div>
   );

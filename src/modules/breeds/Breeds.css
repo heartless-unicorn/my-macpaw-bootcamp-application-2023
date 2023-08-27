@@ -1,0 +1,51 @@
+.Breeds .menu {
+  margin: 10px 0;
+}
+
+.breed-form button {
+  margin-right: 10px;
+}
+.SpecificBreed .breed-id {
+  padding: 5px 3px;
+}
+
+.SpecificBreed .breed-header {
+  background-color: var(--background-secondary-color);
+  color: var(--text-secondary-color);
+}
+
+.SpecificBreed img {
+  max-height: 360px;
+  border-radius: 20px;
+}
+.SpecificBreed .info {
+  text-align: center;
+}
+.SpecificBreed .info-field {
+  margin-top: 40px;
+  border: 1px solid var(--background-secondary-color);
+  border-radius: 20px;
+  padding: 0px 40px;
+}
+.SpecificBreed .info-field h3 {
+  font-size: 36px;
+  font-weight: 500;
+  /* padding-bottom: 20px; */
+  /* margin-top: -40px; */
+  background-color: white;
+  display: inline;
+}
+.SpecificBreed .info-field span {
+  font-size: 16px;
+  color: var(--dark-background-color);
+  font-weight: 500;
+}
+.SpecificBreed .info-field p {
+  color: var(--dark-secondary-color);
+  font-size: 16px;
+
+  font-weight: 400;
+}
+.temper {
+  text-align: left;
+}

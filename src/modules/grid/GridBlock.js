@@ -10,15 +10,21 @@ export default function GridBlock(props) {
   return (
     <Container className="GridBlock">
       <Row>
-        <Col>
+        <Col lg={4}>
           <GridImg catInfoCard={arrayOfCats[0]} />
           <GridImg catInfoCard={arrayOfCats[1]} />
         </Col>
-        <Col>
+        <Col lg={8}>
           <Row>
-            <Col>
-              <GridImg catInfoCard={arrayOfCats[2]} />
-              <GridImg catInfoCard={arrayOfCats[3]} />
+            <Col lg={12}>
+              <Row>
+                <Col>
+                  <GridImg catInfoCard={arrayOfCats[2]} />
+                </Col>
+                <Col>
+                  <GridImg catInfoCard={arrayOfCats[3]} />
+                </Col>
+              </Row>
             </Col>
             <div>
               <GridImg catInfoCard={arrayOfCats[4]} />

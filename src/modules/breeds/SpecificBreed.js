@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import BackButton from "../helpers/BackButton";
 import { fetchBreedById } from "../helpers/fetchFunctions";
 import Loader from "../helpers/Loader";
@@ -19,12 +23,26 @@ export default function SpecificBreed() {
       setInfo(response);
       setIsLoaded(true);
     });
+    console.log(data);
   }, []);
   return (
-    <div>
+    <div className="SpecificBreed">
       <Search />
-      <BackButton />
-      {isLoaded ? <SpecificBreedInfo about={info} /> : <Loader />}
+      <div className="app-block">
+        <Row>
+          <Col lg={1}>
+            <BackButton />
+          </Col>
+          <Col lg={3}>
+            <p className="navigation-header breed-header">Breeds</p>
+          </Col>
+          <Col lg={2}>
+            <p className="navigation-header breed-id"> {data.name}</p>
+          </Col>
+        </Row>
+
+        {isLoaded ? <SpecificBreedInfo about={info} /> : <Loader />}
+      </div>
     </div>
   );
 }

@@ -40,12 +40,15 @@ export default function GridImg(props) {
 
   if (info) {
     return (
-      <>
-        <Image
-          src={info.img_url}
-          alt="Cat"
-          fluid
-          rounded
+      <div className="GridImg">
+        <div>
+          <Image src={info.img_url} alt="Cat" fluid />
+        </div>
+        <div
+          className={
+            (source === "breeds" || source === "gallery" || source === "fav") &&
+            "pop-up"
+          }
           onClick={() => {
             if (source === "breeds") {
               navigate(`/breeds/${info.id}`);
@@ -53,11 +56,13 @@ export default function GridImg(props) {
               handleFavorite();
             }
           }}
-        />
-        {source === "gallery" || source === "fav" ? (
-          <p>{isFav ? "Fav" : "No Fav"}</p>
-        ) : null}
-      </>
+        >
+          {source === "gallery" || source === "fav" ? (
+            <p>{isFav ? "Fav" : "No Fav"}</p>
+          ) : null}
+          {source === "breeds" && <p>{info.name}</p>}
+        </div>
+      </div>
     );
   } else {
     return null;

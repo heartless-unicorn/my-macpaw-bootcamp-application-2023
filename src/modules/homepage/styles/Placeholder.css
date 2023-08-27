@@ -1,0 +1,13 @@
+.square {
+  border-radius: 20px;
+  margin-left: 30px;
+}
+.light .square {
+  background-color: var(--background-secondary-color);
+}
+.dark .square {
+  background-color: var(--dark-secondary-background);
+}
+.Placeholder .picture {
+  margin-left: -30px;
+}

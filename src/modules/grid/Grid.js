@@ -4,6 +4,8 @@ import { manageGridBlockData } from "../helpers/functions";
 
 import GridBlock from "./GridBlock";
 
+import "./Grid.css";
+
 export default function Grid(props) {
   const [gridData, setGridData] = useState([]);
 

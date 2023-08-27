@@ -8,31 +8,33 @@ export default function SpecificBreedInfo(props) {
   const info = props.about;
 
   return (
-    <Container>
-      <Image src={info.pic} alt="Cat" fluid rounded />
-      <h3>{info.name}</h3>
-      <Row>
-        <Col>
-          <p>
-            <span>Temperament:</span>
-            {info.temper}
-          </p>
-        </Col>
-        <Col>
-          <p>
-            <span>Origin:</span>
-            {info.origin}
-          </p>
-          <p>
-            <span>Weight: </span>
-            {info.weight}
-          </p>
-          <p>
-            <span>Life span: </span>
-            {info.lifespan}
-          </p>
-        </Col>
-      </Row>
+    <Container className="info">
+      <Image src={info.pic} alt="Cat" />
+      <div className="info-field">
+        <h3>{info.name}</h3>
+        <Row className="pt-4">
+          <Col>
+            <p className="temper">
+              <span>Temperament:</span> <br />
+              {info.temper}
+            </p>
+          </Col>
+          <Col>
+            <p>
+              <span>Origin: </span>
+              {info.origin}
+            </p>
+            <p>
+              <span>Weight: </span>
+              {info.weight}
+            </p>
+            <p>
+              <span>Life span: </span>
+              {info.lifespan}
+            </p>
+          </Col>
+        </Row>
+      </div>
     </Container>
   );
 }
