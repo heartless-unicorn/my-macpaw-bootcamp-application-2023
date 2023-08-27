@@ -6,7 +6,7 @@ export default function NavBlock(props) {
   return (
     <div>
       <NavLink to={`/${name.toLowerCase()}`}>
-        <div>
+        <div className="block">
           <img src={props.image} alt={name} />
         </div>
         <p>{name}</p>
