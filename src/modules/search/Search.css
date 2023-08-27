@@ -22,6 +22,6 @@
   margin-right: 5px;
   border-radius: var(--border-radius);
 }
-.Search .dark a {
+.dark .Search a {
   background-color: var(--dark-secondary-background);
 }

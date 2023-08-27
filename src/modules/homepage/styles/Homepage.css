@@ -48,6 +48,7 @@
   padding: 10px;
   border-radius: var(--border-radius);
   margin: 10px;
+  height: 100vh;
 }
 .dark .app-block {
   background-color: var(--dark-secondary-background);
@@ -83,10 +84,14 @@
   border-radius: var(--border-radius);
 }
 
+.active p {
+  background-color: var(--text-secondary-color) !important;
+  color: white;
+}
 .Homepage {
   padding-left: 10%;
   padding-top: 30px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .sticky-block {
   position: sticky;
@@ -164,4 +169,15 @@ input:checked + .slider:before {
 }
 .slider.round:before {
   border-radius: 50%;
+}
+
+.no-items {
+  padding: 20px;
+  background-color: #f8f8f7;
+  margin: 20px;
+  color: #8c8c8c;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }
