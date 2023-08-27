@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import PlaceholderImage from "../../../media/upload.png";
 import { fetchUploadUserPic } from "../../helpers/fetchFunctions";
 
 export default function UploadForm() {
@@ -27,8 +28,24 @@ export default function UploadForm() {
   };
   return (
     <Form onSubmit={handleImageUpload}>
-      <Form.Group>
-        <Form.Control
+      <div className="upload-form">
+        <div className={`placeholder-block ${!isSuccess && "red"}`}>
+          {userPic ? (
+            <Image src={userPic} className="user-pic" />
+          ) : (
+            <Image src={PlaceholderImage} />
+          )}
+
+          {!userPic && (
+            <p>
+              <span>Drag here</span> your file or <span>Click here</span> to
+              upload
+            </p>
+          )}
+        </div>
+
+        <input
+          className="file-input"
           type="file"
           multiple
           accept="image/png, image/jpeg"
@@ -37,15 +54,26 @@ export default function UploadForm() {
             setIsSuccess(null);
           }}
         />
-      </Form.Group>
-      {userPic && <Image src={userPic} fluid />}
-      {userPic ? (
-        <p> Image file name: {userInputFile.name}</p>
-      ) : (
-        <p>No file selected</p>
-      )}
-      {userPic && <Button type="submit">Upload an Image</Button>}
-      {isSuccess !== null && (isSuccess ? <p>Success</p> : <p>Nah</p>)}
+      </div>
+
+      <div className="message-box">
+        {userPic ? (
+          <p> Image file name: {userInputFile.name}</p>
+        ) : (
+          <p>No file selected</p>
+        )}
+        {userPic && (
+          <Button type="submit" variant="votes">
+            Upload an Image
+          </Button>
+        )}
+        {isSuccess !== null &&
+          (isSuccess ? (
+            <p className="success">Thanks for the Upload - Cat found!</p>
+          ) : (
+            <p className="success">No Cat found - try a different one</p>
+          ))}
+      </div>
     </Form>
   );
 }

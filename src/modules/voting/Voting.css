@@ -1,0 +1,59 @@
+.Voting img {
+  max-height: 360px;
+  border-radius: var(--border-radius);
+}
+.Voting .img-block {
+  text-align: center;
+}
+.action-menu {
+  text-align: center;
+  margin-top: -30px;
+}
+.action-menu button {
+  padding: 15px;
+}
+.action-menu .like {
+  background-color: #97eab9;
+
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+.action-menu .dislike {
+  background-color: #ffd280;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.action-menu .fav {
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  background-color: var(--text-secondary-color);
+}
+.Voting .message {
+  background-color: var(--light-background-color);
+  margin: 14px 20px 10px;
+  padding: 18px 25px;
+  border-radius: var(--border-radius);
+  color: var(--dark-secondary-color);
+  font-size: 16px;
+}
+.Voting .message span {
+  color: black;
+}
+.dark .Voting .message span {
+  color: white;
+}
+.Voting .time {
+  padding: 3px 10px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  margin-right: 20px;
+}
+.dark .Voting .time {
+  background-color: black;
+}
+.Voting .id {
+  font-weight: 500;
+}
+.dark .Voting .message {
+  background-color: var(--dark-secondary-background);
+}

@@ -39,6 +39,9 @@
 .dark .btn-sort {
   background-color: var(--dark-secondary-background);
 }
+.btn-votes {
+  border-radius: 0;
+}
 
 .app-block {
   background-color: var(--light-secondary-background);

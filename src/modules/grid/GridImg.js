@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 
 import { addPicToStore, SourceContext } from "../helpers/functions";
+import FavSvg from "../../media/svgs/FavSvg";
+import FilledFavSvg from "../../media/svgs/FilledFavSvg";
 
 export default function GridImg(props) {
   const info = props.catInfoCard;
@@ -58,7 +60,7 @@ export default function GridImg(props) {
           }}
         >
           {source === "gallery" || source === "fav" ? (
-            <p>{isFav ? "Fav" : "No Fav"}</p>
+            <p>{isFav ? <FilledFavSvg /> : <FavSvg />}</p>
           ) : null}
           {source === "breeds" && <p>{info.name}</p>}
         </div>

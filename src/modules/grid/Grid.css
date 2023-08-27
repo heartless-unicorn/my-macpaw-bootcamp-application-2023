@@ -33,6 +33,10 @@
   padding: 10px;
   background-color: white;
 }
+.dark .pop-up p {
+  background-color: var(--light-text-color);
+  color: var(--text-secondary-color);
+}
 .GridImg img:hover {
   z-index: 0;
 }

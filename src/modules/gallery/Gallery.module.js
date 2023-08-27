@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 import Search from "../search/Search";
@@ -11,6 +13,10 @@ import Loader from "../helpers/Loader";
 import { SourceContext } from "../helpers/functions";
 import BackButton from "../helpers/BackButton";
 
+import UploadSvg from "../../media/svgs/UploadSvg";
+
+import "./Gallery.css";
+
 export default function Gallery() {
   const [gridData, setGridData] = useState([]);
 
@@ -20,13 +26,12 @@ export default function Gallery() {
 
   useEffect(() => {
     if (gridData.length > 0) {
-      console.log("here");
       setisLoaded(true);
     }
   }, [gridData]);
 
   return (
-    <div>
+    <div className="Gallery">
       {isUpload ? (
         <Upload
           closeUploadPopUp={() => {
@@ -36,23 +41,35 @@ export default function Gallery() {
       ) : (
         <div>
           <Search />
-          <BackButton />
-          <Button
-            onClick={() => {
-              setIsUpload(true);
-            }}
-          >
-            Upload
-          </Button>
+          <div className="app-block">
+            <Row className="menu">
+              <Col lg={1}>
+                <BackButton />
+              </Col>
+              <Col lg={10} className="gallery-title">
+                <span className="navigation-header">Gallery</span>
+              </Col>
+              <Col lg={1}>
+                <Button
+                  onClick={() => {
+                    setIsUpload(true);
+                  }}
+                  variant="flat"
+                >
+                  <UploadSvg />
+                </Button>
+              </Col>
+            </Row>
 
-          <FiltersGallery
-            changeGridData={(data) => {
-              setGridData(data);
-            }}
-          />
-          <SourceContext.Provider value="gallery">
-            {isLoaded ? <Grid catList={gridData} /> : <Loader />}
-          </SourceContext.Provider>
+            <FiltersGallery
+              changeGridData={(data) => {
+                setGridData(data);
+              }}
+            />
+            <SourceContext.Provider value="gallery">
+              {isLoaded ? <Grid catList={gridData} /> : <Loader />}
+            </SourceContext.Provider>
+          </div>
         </div>
       )}
     </div>

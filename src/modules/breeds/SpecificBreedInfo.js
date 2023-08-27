@@ -10,8 +10,10 @@ export default function SpecificBreedInfo(props) {
   return (
     <Container className="info">
       <Image src={info.pic} alt="Cat" />
-      <div className="info-field">
+      <div className="name-block">
         <h3>{info.name}</h3>
+      </div>
+      <div className="info-field">
         <Row className="pt-4">
           <Col>
             <p className="temper">

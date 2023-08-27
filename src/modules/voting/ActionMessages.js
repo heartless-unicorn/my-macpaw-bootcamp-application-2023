@@ -7,10 +7,11 @@ export default function ActionMessages(props) {
         const curTime = editTime(el.time);
 
         return (
-          <p key={i}>
+          <p key={i} className="message">
             {" "}
-            <span>{curTime}</span>
-            Image Id: {el.id} was added to {el.action}s
+            <span className="time">{curTime}</span>
+            Image Id: <span className="id">{el.id}</span> was added to{" "}
+            {el.action}s
           </p>
         );
       })}

@@ -17,23 +17,27 @@
 .SpecificBreed img {
   max-height: 360px;
   border-radius: 20px;
+  display: inline-block;
 }
 .SpecificBreed .info {
   text-align: center;
 }
 .SpecificBreed .info-field {
-  margin-top: 40px;
+  margin-top: -30px;
   border: 1px solid var(--background-secondary-color);
   border-radius: 20px;
   padding: 0px 40px;
 }
-.SpecificBreed .info-field h3 {
+.name-block {
+  margin-top: 10px;
+}
+.SpecificBreed .info h3 {
   font-size: 36px;
   font-weight: 500;
-  /* padding-bottom: 20px; */
-  /* margin-top: -40px; */
   background-color: white;
-  display: inline;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
 }
 .SpecificBreed .info-field span {
   font-size: 16px;
@@ -43,8 +47,13 @@
 .SpecificBreed .info-field p {
   color: var(--dark-secondary-color);
   font-size: 16px;
-
   font-weight: 400;
+}
+.dark .SpecificBreed .info-field span {
+  color: white;
+}
+.dark .SpecificBreed .info h3 {
+  background-color: var(--dark-secondary-background);
 }
 .temper {
   text-align: left;

@@ -24,13 +24,14 @@ export default function FormBreedSelect(props) {
       className="form-input"
     >
       <option>All breeds</option>
-      {breeds.map((el, i) => {
-        return (
-          <option value={el.id} key={i}>
-            {el.name}
-          </option>
-        );
-      })}
+      {breeds &&
+        breeds.map((el, i) => {
+          return (
+            <option value={el.id} key={i}>
+              {el.name}
+            </option>
+          );
+        })}
     </Form.Select>
   );
 }

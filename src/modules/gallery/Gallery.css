@@ -1,0 +1,23 @@
+.Gallery .gallery-title {
+  margin-top: 3px;
+}
+.Gallery .filter-form {
+  background-color: var(--light-background-color);
+  padding: 20px 10px 20px;
+  border-radius: var(--border-radius);
+  margin-top: 30px;
+}
+.dark .Gallery .filter-form {
+  background-color: var(--dark-background-color);
+}
+.Gallery .form-label {
+  color: var(--dark-secondary-color);
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  padding-left: 6px;
+}
+.Gallery .filter-form button {
+  margin-top: 28px;
+}
